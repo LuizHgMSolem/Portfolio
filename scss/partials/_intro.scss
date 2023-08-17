@@ -1,0 +1,40 @@
+.intro{
+  display: flex;
+  color: rgba($white, .7);
+  justify-content: center;
+  
+  h2{
+    color: white;
+    white-space: nowrap;
+  }
+
+  
+@supports (display: grid) {
+  display: grid;
+  grid-template-columns: minmax(4rem, 1fr) minmax(auto, 30rem) minmax(4rem, 1fr);
+
+  }
+}
+
+
+.intro-middle{
+  font-family: $ff-serif;
+  font-size: 1.2em;
+  background-color: $dark-blue;
+  padding: 2.5em 5vw;
+  min-height: 20rem;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  @include mq{
+    font-size: 1em;
+  }
+}
+
+.intro-left img, .intro-right img{
+  display: block;
+  object-fit: cover;
+  min-width: 100%;
+  min-height: 100%;
+}

@@ -1,0 +1,47 @@
+html {
+  min-width: 30rem;
+}
+body {
+  color: $gray;
+  font-family: $ff-serif;
+  line-height: 1.6;
+  background: $white;
+  font-size: 0.75rem;
+  display: flex;
+  justify-content: center;
+  min-width: 30rem;
+  min-height: 100vh;
+  position: relative;
+  @include mq{
+    font-size: 1.125rem;
+  }
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+h1 {
+  color: $accent;
+  line-height: 1;
+  font-size: 4.25rem;
+  @include mq {
+    font-size: 5.125rem;
+
+  }
+
+}
+
+h2 {
+  @include sans-serif($fs: 2.5rem);
+  @include mq {
+    font-size: 3rem;
+  }
+}
+
+img {
+  max-width: 100%;
+}

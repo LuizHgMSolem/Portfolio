@@ -1,0 +1,68 @@
+.apresentation {
+  @include container($mwd:60em);
+  @include clearfix;
+  margin-top: 3em;
+}
+
+.title-me{
+  margin-bottom: .25em;
+}
+
+.subtitle-me{
+  margin: .5em 0;
+  white-space: nowrap;
+}
+
+.title-me{    
+  white-space: nowrap;
+  span{
+  white-space: break-spaces;
+  }
+}
+
+.about-img{    
+  height: 25em;
+  @include mq($width:42em){
+    float: left;
+    margin-right: 1em;
+  }
+}
+
+@supports (display:grid){
+  .apresentation {
+  position: relative;
+  margin-top: 4em;
+  display: grid;
+  grid-template-columns:[port-start] minmax(10em, 1fr) [name-start] minmax(6em, 1fr) [img-end] 2fr [port-end];
+  grid-column-gap:1em;
+    .about-img{
+      grid-column: port / img;
+      grid-row: 1 / 2;
+
+      @include mq{
+        grid-row: 1 / 4;
+      }
+    }
+    .title-me{
+      grid-column: name / port;
+      grid-row: 1 / 2;
+      align-self: end;
+
+    }
+
+    .subtitle-me, .about-text{
+      grid-column: port / port;
+
+      @include mq{
+        grid-column: image-end / port-end;
+      }
+    }
+    .subtitle-me{
+      grid-row: 2 / 3;
+    }
+
+    .about-text{
+      grid-row: 3 / 4;
+    }
+  }
+}

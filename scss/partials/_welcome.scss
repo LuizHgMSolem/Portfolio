@@ -1,0 +1,42 @@
+.welcome{
+  background-image: url(../../img/header-bg.png);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1{
+    @include sans-serif($fs:3.5em, $ls: .2em, $tt:none, $lh:2, $fw:$fw-normal,$color:$dark-gray);
+    text-align: center;
+    @include mq {
+      font-size: 5vw;
+    }
+    
+    span{
+      display: block;
+      @include sans-serif($fs: 2.5em, $ls: .2em,$color:$accent);
+      @include mq {
+        font-size: 12vw;
+      }
+    }
+
+    &::before, &::after{
+      content: "";
+      display: block;
+      margin: 0 auto ;
+      width: 70%;
+      height: 2px;
+      background-color: $dark-blue;
+    }
+    &::before{
+      margin-bottom: 4rem;
+    }
+    &::after{
+      margin-top: 5rem;
+      width: 50%;
+    }
+  }
+  
+ 
+}

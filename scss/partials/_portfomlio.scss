@@ -1,0 +1,113 @@
+.mywork-portifolio{
+  text-align: center;
+  background-color: $light-gray;
+  padding: 5em 0;
+}
+
+.portifolio-item{
+  position: relative;
+  overflow: hidden;
+  img{
+    display: block;
+    width: 100%;
+  }
+
+  figcaption {
+    position: absolute;
+    top: 100%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba($accent, .5);
+    padding: 2em;
+    color: $white;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    transition: top ease-in-out 250ms;
+  }
+
+    &:hover figcaption,
+    &:focus figcaption{
+      top: 0;
+    }
+}
+
+.portifolio-disc{
+  display: none;
+  
+  .featured & {
+    display: block;
+  }
+}
+
+.portifolio-title{
+  color: $white;
+  font-size: 2.5rem;
+  margin-bottom: auto;
+}
+
+.portifolio-link{
+  color: $white;
+  font-weight: $fw-bold;
+  font-size: 1.1rem;
+  text-decoration: none;
+  border-bottom: 3px solid $white;
+  align-self: flex-start;
+  margin-left: .5em;
+
+  &::after{
+    content: url(../../img/arrow-right.svg);
+    display: inline-block;
+    height: .8em;
+    width: .8em;
+    margin-left: .5em;
+  }
+}
+
+
+
+@supports (display: flex){
+  .portifolio-items{
+    display: flex;
+    flex-wrap: wrap;
+    @include container($mwd:255em);
+    gap: .1rem;
+  }
+
+  .portifolio-item{
+    position: relative;
+    overflow: hidden;
+    flex: 1 1 45%;
+    &:nth-child(1){
+      flex-basis: 100%;
+    }
+  }
+}
+
+
+@supports (display: grid){
+  .portifolio-items{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .1rem;
+    
+    @include container($mwd:155em);
+    @include mq {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  .portifolio-item.featured{
+    grid-column: 1 / span 2;
+    grid-row: 1/ sapn 2;
+  }
+
+  .featured{
+    .portifolio-title{      
+      font-size: 5rem;
+    }
+    .portifolio-disc{
+      display: block;
+    }
+  }
+}
